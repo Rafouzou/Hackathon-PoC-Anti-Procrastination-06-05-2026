@@ -7,6 +7,10 @@ class VerifiColors {
   static const Color darkGrey = Color(0xFF1A1A1A);
   static const Color lightGrey = Color(0xFFF5F5F5);
   static const Color border = Color(0xFFE0E0E0);
+  static const Color primary = Color(0xFFFFC300);
+  static const Color surface = Color(0xFFF5F5F5);
+  static const Color text = Color(0xFF000000);
+  static const Color textSecondary = Color(0xFF666666);
   
   // Status colors
   static const Color success = Color(0xFF4CAF50);
@@ -175,6 +179,8 @@ class VerifiSpacing {
 
 // Border radius constants
 class VerifiRadius {
+  static const double sm = 8;
+  static const double md = 12;
   static const double small = 8;
   static const double medium = 12;
   static const double large = 16;

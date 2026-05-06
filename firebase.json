@@ -1,10 +1,10 @@
 {
   "projects": {
-    "default": "verifi-project"
+    "default": "verifi-poc-hackathon"
   },
   "functions": [
     {
-      "source": "functions",
+      "source": "cloud/functions",
       "codebase": "default",
       "runtime": "nodejs20"
     }

@@ -1,8 +1,8 @@
-import * as functions from "firebase-functions";
-import * as admin from "firebase-admin";
-
+const admin = require("firebase-admin");
 admin.initializeApp();
 
+const functions = require("firebase-functions");
+const { createDailyAssignmentsManual } = require("./manual");
 const db = admin.firestore();
 
 /**
@@ -10,7 +10,7 @@ const db = admin.firestore();
  * Assigns each user (who has at least one verifiable task) a random person to verify
  * and marks them as needing to verify someone
  */
-export const assignDailyVerifier = functions.pubsub
+exports.assignDailyVerifier = functions.pubsub
   .schedule("0 6 * * *") // 6 AM UTC daily
   .timeZone("UTC")
   .onRun(async (context) => {
@@ -79,7 +79,7 @@ export const assignDailyVerifier = functions.pubsub
 /**
  * Cleanup function - closes expired verification chats (after 24h)
  */
-export const cleanupExpiredChats = functions.pubsub
+exports.cleanupExpiredChats = functions.pubsub
   .schedule("0 7 * * *") // 7 AM UTC daily
   .timeZone("UTC")
   .onRun(async (context) => {
@@ -105,3 +105,6 @@ export const cleanupExpiredChats = functions.pubsub
       throw error;
     }
   });
+
+// Export manual trigger function
+exports.createDailyAssignmentsManual = createDailyAssignmentsManual;

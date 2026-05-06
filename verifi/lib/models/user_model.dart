@@ -13,6 +13,9 @@ class VerifiUser {
     this.tasksCount = 0,
   });
 
+  /// Alias for displayName for convenience
+  String get name => displayName;
+
   factory VerifiUser.fromJson(Map<String, dynamic> json) {
     return VerifiUser(
       uid: json['uid'] as String,

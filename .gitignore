@@ -122,3 +122,22 @@ app.*.symbols
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 !/dev/ci/**/Gemfile.lock
+
+# Node.js
+cloud/functions/node_modules/
+cloud/functions/.firebase/
+.firebase/
+
+# Flutter/Dart
+verifi/.dart_tool/
+verifi/.pub-cache/
+verifi/.packages
+verifi/build/
+verifi/.flutter-plugins
+verifi/.flutter-plugins-dependencies
+verifi/.plugin_symlinks
+verifi/pubspec.lock
+
+# OS/Other
+.DS_Store
+*.log

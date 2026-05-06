@@ -1,7 +1,6 @@
 {
   "name": "verifi-functions",
   "description": "Cloud Functions for Verifi",
-  "type": "module",
   "engines": {
     "node": "20"
   },

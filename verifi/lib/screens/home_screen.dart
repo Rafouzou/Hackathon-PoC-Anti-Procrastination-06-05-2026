@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../services/auth_service.dart';
 import '../theme/verifi_theme.dart';
 import 'tasks/task_list_screen.dart';
+import 'verification/verification_dashboard.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,6 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _screens = [
     const TaskListScreen(),
+    const VerificationDashboard(),
     const _ProfilePlaceholder(),
   ];
 
@@ -42,6 +44,10 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.check_circle),
             label: 'Tasks',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.how_to_reg),
+            label: 'Verify',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
