@@ -1,129 +1,51 @@
-# Verifi - Anti-Procrastination App
+# Verifi: Stop Procrastinating, Start Verifying
 
-Fight procrastination together through social accountability.
+Verifi is an anti-procrastination app that uses social accountability to help you get things done. Instead of just tracking tasks, you commit to them, and a peer verifies that you've actually done the work.
 
-## Problem Statement
+## How it works
 
-1. **Forgotten tasks** → Users don't remember what they committed to
-2. **Wrong timing mindset** → "It's not the right moment" becomes an excuse
-3. **Fear of judgment** → Social pressure prevents task avoidance
-4. **Time illusion** → "I have more time" leads to pushing things back
+1. Create Tasks: Add your daily goals in the app.
+2. Accountability Match: Every day, the system pairs you with another user.
+3. Verify & Chat: You verify your partner's tasks, and they verify yours. You get a temporary, 24-hour chat to share proof and keep each other on track.
+4. Build Streaks: Consistent completion and verification earn you streaks and status.
 
-## Solution
+## Why it works
+By introducing a "peer review" element, Verifi eliminates the easy excuses. You aren't just letting yourself down—you're answering to a partner.
 
-Verifi combines:
-- **Task management** - Create, track, and manage daily tasks
-- **Reminders** - Get notified about upcoming deadlines
-- **Social accountability** - Daily peer verification of task completion
-- **AI assistance** - Smart task parsing to reduce friction
+---
 
-## Key Features
+## How to run the project
 
-### Authentication
-- Simple username + password signup and login
-- No email required for MVP
-- Usernames auto-converted to internal Firebase emails
+### 1. Requirements
+* Flutter SDK (https://docs.flutter.dev/get-started/install) installed.
+* Firebase CLI (https://firebase.google.com/docs/cli) installed and configured.
 
-### Task Management
-- Create tasks with deadlines
-- Mark tasks as verifiable or confidential
-- Track task status (pending, verified, rejected)
-
-### Daily Verification Duty
-Every day, each user with verifiable tasks gets:
-- **One random peer** assigned to verify their tasks
-- **Receives verification** from another random peer
-- Access to a temporary 24-hour chat to discuss proof
-
-### Gamification Elements
-- Verification streaks
-- Task completion badges
-- Accountability network
-
-## Tech Stack
-
-### Frontend
-- Flutter (mobile + web)
-- Dart
-
-### Backend
-- Firebase (Auth, Firestore)
-- Cloud Functions
-- Cloud Scheduler
-
-### Optional
-- Vertex AI Gemini (task parsing)
-
-## Project Structure
-
-```
-verifi/
-├── verifi/              # Flutter app
-│   ├── lib/
-│   │   ├── screens/
-│   │   ├── services/
-│   │   ├── models/
-│   │   ├── widgets/
-│   │   ├── theme/
-│   │   └── main.dart
-│   └── pubspec.yaml
-│
-├── cloud/               # Backend
-│   ├── functions/       # Cloud Functions
-│   └── firestore.rules
-│
-└── docs/               # Documentation
-```
-
-## Getting Started
-
-### Prerequisites
-- Flutter SDK 3.10+
-- Firebase account
-- Node.js 20+ (for Cloud Functions)
-
-### Local Development
-
-1. **Setup Flutter**
+### 2. Setup
+1. Clone the repo: git clone <your-repo-url>
+2. Install dependencies:
    ```bash
    cd verifi
    flutter pub get
-   flutter run
    ```
-
-2. **Setup Firebase**
+3. Configure Firebase:
+   Ensure you are logged into Firebase and have access to the project:
    ```bash
-   flutterfire configure --platforms=android,ios,web
+   firebase login
+   firebase use --add
    ```
 
-3. **Run with Emulator**
-   ```bash
-   firebase emulators:start
-   ```
+### 3. Running Locally
+Use the Firebase Emulator to test the backend without affecting production data:
+```bash
+# Start the emulators
+firebase emulators:start
+```
+Then, in a new terminal window:
+```bash
+# Start the Flutter app
+cd verifi
+flutter run
+```
 
-### Deployment
-
-See [DEPLOYMENT.md](docs/DEPLOYMENT.md) for production setup.
-
-## Design System
-
-- **Primary Color**: Yellow (#FFC300)
-- **Secondary Colors**: Black (#000000), White (#FFFFFF)
-- **Typography**: Poppins (headlines), Inter (body)
-- **Style**: Modern, bold color blocks, clean animations
-
-## API Reference
-
-See [API.md](docs/API.md) for detailed endpoints and data structures.
-
-## Architecture
-
-See [ARCHITECTURE.md](docs/ARCHITECTURE.md) for system design.
-
-## Database Schema
-
-See [SCHEMA.md](docs/SCHEMA.md) for Firestore structure.
-
-## Team
-
-Built by Raphaël Brenn (github.com/Rafouzou) for PoC anti Procrastination Hackathon 2026
+---
+*Built for the 2026 PoC Anti-Procrastination Hackathon.*
