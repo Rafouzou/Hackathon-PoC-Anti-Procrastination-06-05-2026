@@ -48,6 +48,11 @@ unlinked_spec.ds
 
 # Android related
 **/android/**/gradle-wrapper.jar
+
+# Project docs (not for deployment)
+IMPLEMENTATION_STATUS.md
+firebase-debug.log
+draft.txt
 .gradle/
 **/android/captures/
 **/android/gradlew

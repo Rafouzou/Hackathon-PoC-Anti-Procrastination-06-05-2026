@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "default": "verifi-project"
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "runtime": "nodejs20"
+    }
+  ]
+}

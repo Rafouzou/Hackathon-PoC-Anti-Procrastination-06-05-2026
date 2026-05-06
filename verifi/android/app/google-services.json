@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1074842337903",
+    "project_id": "verifi-poc-hackathon",
+    "storage_bucket": "verifi-poc-hackathon.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1074842337903:android:cbbd15ec78866a5f33839a",
+        "android_client_info": {
+          "package_name": "com.example.verifi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKmtqBOvllBOcSQZddlxwOeS3yf82O3-s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
