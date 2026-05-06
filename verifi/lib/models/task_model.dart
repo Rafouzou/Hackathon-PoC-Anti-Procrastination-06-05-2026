@@ -16,7 +16,7 @@ class Task {
     required this.title,
     this.description,
     required this.deadline,
-    required this.isVerifiable,
+    this.isVerifiable = true,
     this.status = TaskStatus.pending,
     required this.createdAt,
   });

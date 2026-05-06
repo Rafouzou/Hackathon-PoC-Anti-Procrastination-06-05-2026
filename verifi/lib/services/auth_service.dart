@@ -11,11 +11,20 @@ class AuthService {
     return '$normalized@verifi.local';
   }
 
+  VerifiUser _fromFirebaseUser(User user) {
+    return VerifiUser(
+      uid: user.uid,
+      email: user.email ?? '',
+      displayName: user.displayName ?? 'Unknown',
+      createdAt: user.metadata.creationTime ?? DateTime.now(),
+    );
+  }
+
   // Get current user stream
   Stream<VerifiUser?> get authStateChanges {
-    return _auth.authStateChanges().asyncMap((user) async {
+    return _auth.authStateChanges().map((user) {
       if (user == null) return null;
-      return await getUser(user.uid);
+      return _fromFirebaseUser(user);
     });
   }
 
@@ -73,7 +82,7 @@ class AuthService {
         password: password,
       );
 
-      return await getUser(userCredential.user!.uid);
+      return _fromFirebaseUser(userCredential.user!);
     } on FirebaseAuthException catch (e) {
       throw _handleAuthError(e);
     }
@@ -84,9 +93,21 @@ class AuthService {
     try {
       final doc = await _firestore.collection('users').doc(uid).get();
       if (!doc.exists) {
+        final firebaseUser = _auth.currentUser;
+        if (firebaseUser != null && firebaseUser.uid == uid) {
+          return _fromFirebaseUser(firebaseUser);
+        }
+
         throw Exception('User not found');
       }
       return VerifiUser.fromJson(doc.data()!);
+    } on FirebaseException catch (e) {
+      final firebaseUser = _auth.currentUser;
+      if (firebaseUser != null && firebaseUser.uid == uid) {
+        return _fromFirebaseUser(firebaseUser);
+      }
+
+      throw Exception('Failed to get user: ${e.message ?? e.code}');
     } catch (e) {
       throw Exception('Failed to get user: $e');
     }

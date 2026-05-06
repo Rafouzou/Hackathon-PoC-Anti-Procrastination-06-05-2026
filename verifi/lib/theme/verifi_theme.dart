@@ -76,8 +76,15 @@ class VerifiTheme {
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: VerifiColors.error),
         ),
-        labelStyle: _bodyText(),
+  labelStyle: _bodyText(),
         hintStyle: _bodyText().copyWith(color: VerifiColors.darkGrey.withValues(alpha: 0.5)),
+      ),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: VerifiColors.white,
+        selectedItemColor: VerifiColors.yellow,
+        unselectedItemColor: VerifiColors.darkGrey,
+        elevation: 8,
+        type: BottomNavigationBarType.fixed,
       ),
       textTheme: TextTheme(
         displayLarge: _displayLarge(),
